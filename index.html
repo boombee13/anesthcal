@@ -53,7 +53,7 @@
 
         <div id="results-section" class="hidden">
             <h2 class="text-xl font-bold text-gray-700 mb-3 border-b pb-2">Weight Parameters</h2>
-            <div id="weight-card" class="grid grid-cols-2 gap-4 mb-6 p-4 rounded-md shadow-inner bg-blue-50 transition-colors duration-300">
+            <div id="weight-card" class="grid grid-cols-2 gap-6 mb-6 p-6 rounded-3xl shadow-inner bg-blue-50 transition-colors duration-300">
                 <div><span class="text-sm text-gray-600">Actual (TBW):</span> <br><span id="res-tbw" class="text-2xl font-bold text-blue-500 res-text"></span> kg</div>
                 <div><span class="text-sm text-gray-600">Ideal (IBW):</span> <br><span id="res-ibw" class="text-2xl font-bold text-blue-500 res-text"></span> kg</div>
                 <div><span class="text-sm text-gray-600">Lean (LBW):</span> <br><span id="res-lbw" class="text-2xl font-bold text-blue-500 res-text"></span> kg</div>
@@ -110,7 +110,6 @@
             document.getElementById('res-adjbw').innerText = adjbw.toFixed(1);
             document.getElementById('res-lbw').innerText = lbw.toFixed(1);
 
-            // เพิ่ม property 'note' เพื่อแยกวงเล็บออกมาจัด style ต่างหาก
             const drugs = [
                 { name: "Propofol", note: "(Induction)", minMultiplier: 1.0, maxMultiplier: 2.5, unit: "mg", baseName: "LBW", baseValue: lbw },
                 { name: "Rocuronium", note: "(Intubation)", multiplier: 0.6, unit: "mg", baseName: "IBW", baseValue: ibw },
@@ -137,7 +136,6 @@
                     baseDoseDisplay = drug.multiplier;
                 }
 
-                // เช็คว่ามียาตัวนี้มี note หรือไม่ ถ้ามีให้ใส่ span เล็กๆ สีเทาต่อท้าย
                 const noteHtml = drug.note ? `<span class="text-sm text-gray-400 font-normal ml-1">${drug.note}</span>` : "";
 
                 const tr = document.createElement('tr');
@@ -163,14 +161,14 @@
                 labelMale.className = "text-gray-400 font-bold transition-colors duration-300";
                 labelFemale.className = "text-pink-400 font-bold transition-colors duration-300";
                 appTitle.className = "text-2xl font-bold text-center mb-6 text-pink-400 transition-colors duration-300";
-                weightCard.className = "grid grid-cols-2 gap-4 mb-6 p-4 rounded-md shadow-inner bg-pink-50 transition-colors duration-300";
+                weightCard.className = "grid grid-cols-2 gap-6 mb-6 p-6 rounded-3xl shadow-inner bg-pink-50 transition-colors duration-300";
                 cardBorder.style.borderColor = "#f9a8d4"; 
                 resTexts.forEach(el => el.className = "text-2xl font-bold text-pink-500 res-text transition-colors duration-300");
             } else {
                 labelMale.className = "text-blue-400 font-bold transition-colors duration-300";
                 labelFemale.className = "text-gray-400 font-bold transition-colors duration-300";
                 appTitle.className = "text-2xl font-bold text-center mb-6 text-blue-400 transition-colors duration-300";
-                weightCard.className = "grid grid-cols-2 gap-4 mb-6 p-4 rounded-md shadow-inner bg-blue-50 transition-colors duration-300";
+                weightCard.className = "grid grid-cols-2 gap-6 mb-6 p-6 rounded-3xl shadow-inner bg-blue-50 transition-colors duration-300";
                 cardBorder.style.borderColor = "#93c5fd"; 
                 resTexts.forEach(el => el.className = "text-2xl font-bold text-blue-500 res-text transition-colors duration-300");
             }
